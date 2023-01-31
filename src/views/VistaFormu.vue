@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="seccion">
     <label for="">Nombre</label>
     <input type="text" placeholder="nombre" v-model="$store.state.nombre">
 
@@ -21,5 +21,13 @@ export default {
 </script>
 
 <style lang="sass">
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
 
+#seccion
+    height: 100vh
+    background: rgb(44,151,174)
+    background: linear-gradient(90deg, rgba(44,151,174,1) 0%, rgba(41,194,148,1) 100%)
 </style>
