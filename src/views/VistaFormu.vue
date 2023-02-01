@@ -2,7 +2,7 @@
   <section id="seccion">
     <label for="">Nombre</label>
     <input type="text" placeholder="nombre" v-model="$store.state.nombre">
-
+    <h1 class=""></h1>
     <label for="">Edad</label>
     <input type="text" placeholder="nombre" v-model="$store.state.edad">
     <button @click="addPerson">Enviar</button>
