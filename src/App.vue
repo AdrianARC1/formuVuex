@@ -7,6 +7,21 @@
   <router-view/>
 </template>
 
+<script>
+
+export default{
+  mounted(){
+    let data= localStorage.getItem('Personas')
+    if(data!=null){
+      this.$store.state.datos_login = JSON.parse(data)
+    }else{
+      console.log("El local storage está vacio")
+    }
+  },
+}
+</script>
+
+
 <style lang="sass">
 *
     padding: 0

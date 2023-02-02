@@ -11,9 +11,9 @@ export default createStore({
   mutations: {
     addPersonVuex(state){
       state.datos_login.push({nombre: state.nombre, edad: state.edad})
-
       state.nombre=''
       state.edad=''
+      localStorage.setItem('Personas', JSON.stringify(state.datos_login))
       console.log(state.datos_login)
     }
   },
