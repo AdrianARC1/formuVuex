@@ -4,9 +4,21 @@ export default createStore({
   state: {
     nombre: "",
     edad: "",
-    datos_login:[]
+    datos_login:[],
+    mayores: '',
+    menores:'',
+    estado:'',
+    arrayMayores: [],
+    arrayMenores: []
   },
   getters: {
+    persMayores(state){
+      state.datos_login.filter(elemento=>elemento.edad>=18)
+    },
+    persMenores(state){
+      state.datos_login.filter(elemento=>elemento.edad<18)
+    }
+    
   },
   mutations: {
     addPersonVuex(state){

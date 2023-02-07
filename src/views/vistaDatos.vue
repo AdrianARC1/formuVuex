@@ -1,7 +1,38 @@
 <template>
     <div class="h-[90vh]" id="div-prin">
       <h1 v-if="$store.state.datos_login.length==0" class="flex justify-center">No hay datos que mostrar</h1>
-      <div class="w-full flex justify-center" id="tabla">
+        <nav class="flex justify-evenly">
+            <span class="p-2"><input type="checkbox" v-model="$store.state.mayores">Mayores</span>
+              <p>{{ $store.state.mayores }}</p>
+            <span class="p-2"><input type="checkbox" v-model="$store.state.menores">Menores</span>
+              <p>{{ $store.state.menores }}</p>
+        </nav>
+
+      <div v-if="$store.state.mayores && $store.getters.persMayores" class="w-full flex justify-center" id="tabla">
+        <table v-if="$store.state.datos_login.length>0" class="border-solid mt-10 text-center">
+          <tr class="border-solid border">
+            <th class="border-solid border">Nombre</th>
+            <th class="border-solid border">Edad</th>
+          </tr>
+          <tr class="border-solid border" v-for="dato in $store.state.datos_login" :key="dato">
+            <td class="border-solid border p-0.5">{{dato.nombre}}</td>
+            <td class="border-solid border p-0.5">{{dato.edad}}</td>
+          </tr>
+        </table>
+      </div>
+      <div v-if="$store.state.menores && $store.getters.persMenores" class="w-full flex justify-center" id="tabla">
+        <table v-if="$store.state.datos_login.length>0" class="border-solid mt-10 text-center">
+          <tr class="border-solid border">
+            <th class="border-solid border">Nombre</th>
+            <th class="border-solid border">Edad</th>
+          </tr>
+          <tr class="border-solid border" v-for="dato in $store.state.datos_login" :key="dato">
+            <td class="border-solid border p-0.5">{{dato.nombre}}</td>
+            <td class="border-solid border p-0.5">{{dato.edad}}</td>
+          </tr>
+        </table>
+      </div>
+      <div v-if="$store.state.mayores && $store.state.menores || $store.state.mayores == false && $store.state.menores == false" class="w-full flex justify-center" id="tabla">
         <table v-if="$store.state.datos_login.length>0" class="border-solid mt-10 text-center">
           <tr class="border-solid border">
             <th class="border-solid border">Nombre</th>
